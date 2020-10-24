@@ -20,6 +20,8 @@ Scaricare poi lo script COVID_itaRegPlot.py e salvarlo nella stessa cartella del
 
 Aprire quindi il terminale nella stessa posizione ed eseguire
 
-$ python COVID_itaRegPlot <nome_regione>
+$ python COVID_itaRegPlot <"nome_regione">
 
-con il nome della regione di interesse al posto di <nome_regione>.
+con il nome della regione di interesse inserito fra apici al posto di <"nome_regione">, per esempio
+
+$ python COVID_itaRegPlot "Emilia-Romagna"
