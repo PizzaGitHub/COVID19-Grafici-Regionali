@@ -38,10 +38,10 @@ data_regione['index'] = range(0,len(data_regione))
 
 
 # extract daily tamponi
-temp = data_regione['tamponi'].copy()
+temp = data_regione['tamponi']
 temp2 = np.zeros(len(temp))
 temp2[1:] = temp[:-1].copy()
-data_regione["tamponi_giornalieri"] = temp - temp2
+data_regione["tamponi_giornalieri"] = (temp - temp2).copy()
 
 
 
