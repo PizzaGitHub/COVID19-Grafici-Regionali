@@ -42,7 +42,7 @@ temp = data_regione['tamponi'].copy()
 temp2 = np.zeros(len(temp))
 temp2[1:] = temp[:-1].copy()
 data_regione["tamponi_giornalieri"] = temp - temp2
-tamponi_giornalieri = (temp - temp2).copy()
+
 
 
 
