@@ -47,6 +47,7 @@ data_regione["tamponi_giornalieri"] = (temp - temp2).copy()
 
 
 
+
 # PLOT SECTION
 
 # define some colors and fontsizes(its better to define them here trust meh)
@@ -93,7 +94,7 @@ par4.spines["right"].set_visible(True)
 
 # plot everythin
 host1.bar(x,data_regione["tamponi_giornalieri"], color=tamponi_color_str, linewidth=0, label="Tamponi")
-p2, = par1.plot(x,data_regione["nuovi_positivi"]/tamponi_giornalieri, color=rapporto_np_t_color_str, linewidth=1, label="% tamponi positivi")
+p2, = par1.plot(x,data_regione["nuovi_positivi"]/data_regione["tamponi_giornalieri"], color=rapporto_np_t_color_str, linewidth=1, label="% tamponi positivi")
 p3, = par2.plot(x,data_regione["nuovi_positivi"], color=nuovi_positivi_color_str, linewidth=3, label="Nuovi positivi")
 # data_regione["tamponi_giornalieri"].plot(kind="bar",ax=par2, use_index=False, color="#9a9a9a", ylim=(0,max(data_regione["tamponi_giornalieri"])*1.1))
 host2.bar(x, data_regione["totale_positivi"], color=positivi_color_str, linewidth=0, label="Positivi")
