@@ -13,6 +13,8 @@ Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra
 ## Istruzioni versione Colab 
 Dopo essersi recati all'indirizzo sopra indicato, inserire alla voce nomeRegione (sezione input parameters) il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
+
 ## Istruzioni versione locale
 
 ### Prerequisiti
