@@ -8,16 +8,21 @@ L'output del programma consiste in due grafici in cui sono rappresentati gli and
 
 relativi alla regione specificata dall'utente.
 
-## Prerequisiti
+Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab al link https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA.
+
+## Istruzioni versione Colab 
+Dopo essersi recati all'indirizzo sopra indicato, inserire alla voce nomeRegione (sezione input parameters) il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output
+
+## Istruzioni versione locale
+
+### Prerequisiti
 E' necessario avere installato sul proprio pc python 3.x completo dei pacchetti Numpy, Matplotlib e Pandas
 
-## Utilizzo
-
+### Setup
 Dall'indirizzo https://github.com/pcm-dpc/COVID-19/blob/master/dati-regioni/dpc-covid19-ita-regioni.csv aprire il "dpc-covid19-ita-regioni.csv" più recente e salvarne una copia .csv in locale.
 Scaricare poi lo script COVID_itaRegPlot.py e salvarlo nella stessa cartella del file .csv.
 
 ### Linux
-
 Aprire quindi il terminale nella stessa posizione ed eseguire
 ```
 $ python COVID_itaRegPlot <"nome_regione">
