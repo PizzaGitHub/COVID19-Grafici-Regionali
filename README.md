@@ -8,12 +8,13 @@ L'output del programma consiste in due grafici in cui sono rappresentati gli and
 
 relativi alla regione specificata dall'utente.
 
-Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab al link https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA.
+Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab, cliccando sull'icona sottostante
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA)
 
 ## Istruzioni versione Colab 
-Dopo essersi recati all'indirizzo sopra indicato, inserire alla voce nomeRegione (sezione input parameters) il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output
+Dopo aver aperto il notebook Colab, inserire alla voce nomeRegione (sezione input parameters) il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
+
 
 ## Istruzioni versione locale
 
