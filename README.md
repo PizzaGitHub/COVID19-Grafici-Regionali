@@ -8,7 +8,8 @@ L'output del programma consiste in due grafici in cui sono rappresentati gli and
 
 relativi alla regione specificata dall'utente.
 
-Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab, cliccando sull'icona sottostante
+Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab, cliccando sull'icona sottostante:
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA)
 
 ## Istruzioni versione Colab 
