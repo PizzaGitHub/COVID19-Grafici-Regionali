@@ -104,7 +104,7 @@ p4, = par4.plot(x, data_regione["terapia_intensiva"], color=intensiva_color_str,
 
 # x and y axis ranges
 host1.set_xlim(0,len(x))
-host1.set_ylim(0,max(tamponi_giornalieri)*1.1)
+host1.set_ylim(0,max(data_regione["tamponi_giornalieri"])*1.1)
 par1.set_ylim(0,1)
 par2.set_ylim(0,max(data_regione["nuovi_positivi"]*1.1))
 
