@@ -10,7 +10,7 @@ relativi alla regione specificata dall'utente.
 
 Dello script esistono 2 release: una scaricabile ed eseguibile in locale l'altra reperibile direttamente su Google Colab, cliccando sull'icona sottostante:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA&forceEdit=true&sandboxMode=true)
 
 ## Istruzioni versione Colab 
 Dopo aver aperto il notebook Colab, inserire alla voce nomeRegione nella sezione INPUT il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output
