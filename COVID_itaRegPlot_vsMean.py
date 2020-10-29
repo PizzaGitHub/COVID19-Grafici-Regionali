@@ -13,14 +13,12 @@ def make_patch_spines_invisible(ax):
         sp.set_visible(False)
 
 
-# INPUT
-csv_regioni = str(sys.argv[1])
-csv_nazione = str(sys.argv[2])
-nomeRegione = str(sys.argv[3])
+# USER INPUT
+nomeRegione = str(sys.argv[1])
 data_inizio, data_fine = 0, 0
 
 
-# Dictionary with all regional populations: we will use it to normalize national values
+# Italian population + dictionary with all regional populations: we will use it to normalize national values
 popolazione = {"Abruzzo":1305770, "Basilicata":556934, "Calabria":1924701, "Campania":5785861,
                "Emilia-Romagna":4467118,"Friuli Venezia":1211357,
                "Lazio":5865544,"Lombardia":10103969,"Marche":1518400,"Molise":302265,"Piemonte":4341375,
@@ -30,10 +28,12 @@ popolazione = {"Abruzzo":1305770, "Basilicata":556934, "Calabria":1924701, "Camp
 popolazione_italia = 60.36e6
 
 
+
+
 # DATA ACQUISITION 
 # fkn easy as that file read holy smokes
-pre_data_regione = pd.read_csv(csv_regioni)
-pre_data_italia = pd.read_csv(csv_nazione)
+pre_data_regione = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv')
+pre_data_italia = pd.read_csv('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv')
 
 # reindex pre_data_regione using region names and extract the region we want to analyze
 pre_data_regione.set_index("denominazione_regione",inplace=True)
@@ -82,102 +82,41 @@ positivi_color_str = "#ffd1a8"
 ricoverati_color_str = "#8f0000"
 intensiva_color_str = "#000000"
 
-title_size_str="15"
+suptitle_size_str="15"
 subtitle_size_str="13"
-axis_label_size_str="12"
-tick_label_size_str="10"
+axis_label_size_str="10"
+tick_label_size_str="8"
 
-labelpad_val=10
+labelpad_val=5
+subtitlepad_val=10
 
-# define a list for the things to plot (im so lazy jesus)
-categorie = ["tamponi","nuovi_positivi","totale_positivi","ricoverati_con_sintomi","terapia_intensiva"]
-
-
-
-# create figure, axes and adjust some paddings
-fig = plt.figure(figsize=(16,8))
-
-for i in range(len(categorie)):
-	host = plt.subplot(3,2,i+1)
-	data_regione[categorie[i]].plot(kind='line', ax = host)
-	scaled_data_italia[categorie[i]].plot(kind='line', ax = host)
-
-	host.set_title("%s" % categorie[i], fontsize = subtitle_size_str)
-
-fig.subplots_adjust(hspace=.4,left=0.1,right=0.85)
-plt.tight_layout(h_pad=5,rect=(0.04,0.04,0.86,0.9))
-
-fig.suptitle("%s: confronto con la media nazionale" % nomeRegione, fontsize=title_size_str)
-
-'''
-for i in range(len(categorie)):
-	host.set_title(categorie[i], fontsize = subtitle_size_str)
+# lets also define a lits of all the interesting categories
+categorie = ["tamponi", "nuovi_positivi", "totale_positivi", "ricoverati_con_sintomi", "terapia_intensiva"]
 
 
-# plot everything
-for i in range(len(categorie)):
-	i.plot(x,data_regione[categorie[i]], colore=tamponi_color_str, linewidth=1, label=categorie[i])
+fig = plt.figure(figsize = (15,9), dpi=60)
+fig.suptitle("%s: confronto con media nazionale" % nomeRegione, fontsize=suptitle_size_str)
+fig.subplots_adjust(top=0.912, bottom=0.077, left=0.05, right=0.97, hspace=0.52, wspace=0.085)
 
 
-
-
-# plot everythin
-host1.bar(x,data_regione["tamponi_giornalieri"], color=tamponi_color_str, linewidth=0, label="Tamponi")
-p2, = par1.plot(x,data_regione["nuovi_positivi"]/data_regione["tamponi_giornalieri"], color=rapporto_np_t_color_str, linewidth=1, label="% tamponi positivi")
-p3, = par2.plot(x,data_regione["nuovi_positivi"], color=nuovi_positivi_color_str, linewidth=3, label="Nuovi positivi")
-
-host2.bar(x, data_regione["totale_positivi"], color=positivi_color_str, linewidth=0, label="Positivi")
-p5, = par3.plot(x, data_regione["ricoverati_con_sintomi"], color=ricoverati_color_str, linewidth=2, label="Ricoverati")
-p4, = par4.plot(x, data_regione["terapia_intensiva"], color=intensiva_color_str, linewidth=2, label="Terapia intensiva")
-
-
-# x and y axis ranges
-host1.set_xlim(0,len(x))
-host1.set_ylim(0,max(data_regione["tamponi_giornalieri"])*1.1)
-par1.set_ylim(0,1)
-par2.set_ylim(0,max(data_regione["nuovi_positivi"]*1.1))
-
-host2.set_xlim(0,len(x))
-host2.set_ylim(0,max(data_regione["totale_positivi"])*1.1)
-par3.set_ylim(0,max(data_regione["ricoverati_con_sintomi"])*1.1)
-par4.set_ylim(0,max(data_regione["ricoverati_con_sintomi"])*1.1)
-
-
-# cosmetics
-for i in host1.spines:
-	host1.spines[i].set_color(base_color_str)
-	par1.spines[i].set_color(base_color_str)
-	par2.spines[i].set_color(base_color_str)
-	host2.spines[i].set_color(base_color_str)
-	par3.spines[i].set_color(base_color_str)
-	par4.spines[i].set_color(base_color_str)
-
-# top graph cosmetics
-host1.grid(axis="y",linewidth='0.5',linestyle=':', color='#aaaaaa')
-host1.tick_params(axis="both", labelsize= tick_label_size_str, color = base_color_str, labelcolor = base_color_str)
-host1.set_xticks([0,100,200])
-host1.set_xlabel("Giorni", fontsize= axis_label_size_str, labelpad=labelpad_val, color = base_color_str)
-host1.set_ylabel("Tamponi", fontsize= axis_label_size_str, labelpad=labelpad_val, color = base_color_str)
-
-par1.tick_params(axis="y", labelsize= tick_label_size_str, color = base_color_str, labelcolor=base_color_str)
-par1.set_ylabel("% positività tampone", fontsize= axis_label_size_str, labelpad=labelpad_val, color = p2.get_color() )
-
-par2.tick_params(axis="y", labelsize= tick_label_size_str, color = base_color_str, labelcolor = base_color_str)
-par2.set_ylabel("Nuovi positivi", fontsize= axis_label_size_str, labelpad=labelpad_val, color = p3.get_color())
-
-# bottom graph cosmetics
-host2.grid(axis="y",linewidth='0.5',linestyle=':', color='#aaaaaa')
-host2.tick_params(axis="both", labelsize= tick_label_size_str, color = base_color_str, labelcolor = base_color_str)
-host2.set_xticks([0,100,200])
-host2.set_xlabel("Giorni", fontsize= axis_label_size_str, labelpad=labelpad_val, color = base_color_str)
-host2.set_ylabel("Casi attivi", fontsize= axis_label_size_str, labelpad=labelpad_val, color = "#ffb682")
-
-par3.tick_params(axis="y", labelsize= tick_label_size_str, color = base_color_str, labelcolor = base_color_str)
-par3.set_ylabel("Ricoverati", fontsize= axis_label_size_str, labelpad=labelpad_val, color = p5.get_color())
-
-par4.tick_params(axis="y", labelsize= tick_label_size_str, color = base_color_str, labelcolor = base_color_str)
-par4.set_ylabel("Terapia intensiva", fontsize= axis_label_size_str, labelpad=labelpad_val, color = "#000000")
-'''
-
+plot_index = 0 
+for i in categorie:
+	plot_index += 1 
+	
+	# plot the i-th graph
+	axes = fig.add_subplot(3,2,plot_index)
+	axes.plot(x,scaled_data_italia[i], base_color_str, linewidth=1.5, label="Media nazionale")
+	axes.plot(x,data_regione[i], color=nuovi_positivi_color_str, linewidth=1.5, label="Dati regionali")
+	
+	# cosmetics
+	axes.set_title(i, fontsize=subtitle_size_str, pad=subtitlepad_val)
+	for j in axes.spines:
+		axes.spines[j].set_color(base_color_str)
+	axes.tick_params(axis="both", labelsize=tick_label_size_str, color=base_color_str, labelcolor=base_color_str)
+	axes.set_xticks([0,100,200])
+	axes.set_xlabel("Giorni", fontsize=axis_label_size_str, labelpad=labelpad_val, color=base_color_str)
+	axes.grid(axis="y", linewidth='0.5', linestyle=':', color='#aaaaaa')
+	axes.legend()
+	
 plt.show()
 
