@@ -13,7 +13,9 @@ relativi alla regione specificata dall'utente.
 
 ## Istruzioni versione Colab
 Aprire il notebook cliccando sull'icona sottostante:
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA&forceEdit=true&sandboxMode=true)
+
 Inserire poi alla voce `nomeRegione` nella sezione INPUT il nome della regione di interesse fra apici (ad esempio "Lombardia") e premere CTRL+Invio. In fondo alla pagina appariranno i grafici di output.
 
 ### Istruzioni utilizzo in locale (Linux)
