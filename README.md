@@ -22,11 +22,7 @@ Inserire poi alla voce `nomeRegione` nella sezione INPUT il nome della regione d
 
 **Prerequisiti**: è necessario avere installato sul proprio pc python 3.x completo dei pacchetti Numpy, Matplotlib e Pandas.
 
-Da terminale eseguire 
-```
-https://github.com/PizzaGitHub/COVID_itaRegPlot.git
-```
-Dopo aver estratto i contenuti della cartella compressa, portarsi all'interno di COVID_ita_RegPlot-main ed eseguire 
+Una volta scaricato e decompresso il pacchetto, portarsi all'interno di COVID19-Grafici-Regionali e da li eseguire su terminale
 ```
 $ python COVID_itaRegPlot.py <"nome_regione">
 ```
