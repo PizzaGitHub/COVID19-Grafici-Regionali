@@ -26,4 +26,10 @@ Una volta scaricato e decompresso il pacchetto, portarsi all'interno di COVID19-
 ```
 $ python COVID_itaRegPlot.py <"nome_regione">
 ```
-con il nome della regione di interesse inserito fra apici al posto di <"nome_regione">, per esempio `$ python COVID_itaRegPlot "Emilia-Romagna"`
+con il nome della regione di interesse inserito fra apici al posto di <"nome_regione">, per esempio `$ python COVID_itaRegPlot "Emilia-Romagna"`.
+
+##COVID_itaRegPlot_vsMean.py
+Fornisce 5 grafici relativi a tamponi eseguiti, nuovi contagi, totale dei contagiati attivi, ricoverati e ricoverati in terpia intensiva in funzione del tempo, confrontando l'andamento regionale con quello nazionale moltiplicato per il rapporto popolazione_regionale/popolazione_italiana.
+
+### Istruzioni versione Colab
+
