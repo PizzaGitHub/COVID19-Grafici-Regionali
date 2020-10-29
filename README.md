@@ -11,7 +11,7 @@ L'output del programma consiste in due grafici in cui sono rappresentati gli and
 relativi alla regione specificata dall'utente.
 
 
-## Istruzioni versione Colab
+### Istruzioni versione Colab
 Aprire il notebook cliccando sull'icona sottostante:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1shxxe7AmXR61BY5tYpp3AdYurL-b8Kts#scrollTo=5MnIjStE9luA&forceEdit=true&sandboxMode=true)
